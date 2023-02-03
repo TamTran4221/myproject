@@ -19,6 +19,7 @@
                             <th>Mô tả sản phẩm</th>
                             <th>Hình ảnh</th>
                             <th>Danh mục</th>
+                            <th style="width:100px; min-width:100px;" class="text-center text-danger"><i class="fa fa-bolt"> </i></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -32,7 +33,10 @@
                             <td>{{$value->description}}</td>
                             <td><img src="{{asset('uploads')}}/{{$value->images}}" alt="" width="100"></td>
                             <td>{{$value->categoryName}}</td>
-
+                            <td>
+                                <a href="{{ route('product.edit')}}"title="" class="btn-success">Sửa</a>
+                                <a href=""title="" class="btn-success">Xóa</a>
+                            </td>
                         </tr>
                         @endforeach
                     </tbody>

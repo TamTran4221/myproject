@@ -17,12 +17,6 @@
                     <input type="text" class="form-control" name="price" aria-describedby="emailHelp" placeholder="Giá sản phẩm">
                     
                 </div>
-                <div class="form-group">
-                    <label for="exampleInputEmail1">Mô tả sản phẩm</label>
-                    <input type="text" class="form-control" name="price" aria-describedby="emailHelp" placeholder="Mô tả sản phẩm">
-                    
-                </div>
-                
                     <div class="form-group">
                       <label for="">Danh mục</label>
                       <select class="form-control" name="category_id" id="">
@@ -30,13 +24,15 @@
                         <option value="{{$value->id}}">{{$value->name}}</option>
                         @endforeach
                       </select>
-                    </div>
-                    
+                    </div>   
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Mô tả sản phẩm</label>
+                    <textarea name="des" id="input" class="form-control"></textarea>
                
                 <div class="form-group">
                     <label for="exampleInputEmail1">Image</label>
                     <input type="file" class="form-control" name="image" aria-describedby="emailHelp" placeholder="Enter email">
-                    
                 </div>
                 <div class="form-group">
                     <label for="exampleInputPassword1" class="d-block">Trạng thái</label>

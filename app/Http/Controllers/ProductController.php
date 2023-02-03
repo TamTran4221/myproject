@@ -11,7 +11,6 @@ class ProductController extends Controller
     {
         $products = DB::table('product')->join('category','product.category_id','=','category.id')
         ->select('product.*','category.name AS categoryName')->get();
-      
         return view('product.index',compact('products'));
     }
     public function add()
@@ -33,11 +32,19 @@ class ProductController extends Controller
         $products = DB::table('product')->insert([
             'name'=>$req->name,
             'price'=>$req->price,
-            'description'=>$req->description,
+            'description'=>$req->des,
             'category_id'=>$req->category_id,
             'images'=>$fileName,
+            'status'=>$req->status
         ]);
 
-        return redirect()->route('product.index', [$products]);
+        if($products){
+            return redirect()->route('product.index')->with('success','Thêm mới thành công');
+       }
     }
+     public function edit()
+     {
+        $products = DB::table('product')->get();
+        return view('product.index',compact('products'));
+     }
 }
