@@ -42,9 +42,18 @@ class ProductController extends Controller
             return redirect()->route('product.index')->with('success','Thêm mới thành công');
        }
     }
-     public function edit()
-     {
-        $products = DB::table('product')->get();
-        return view('product.index',compact('products'));
-     }
+    public function edit(Request $req,$id)
+    {
+       
+        $student = DB::table('product')->where('id',$id)->update([
+            'name'=>$req->name,
+            'price'=>$req->price,
+            'description'=>$req->des,
+            'category_id'=>$req->category_id,
+            'images'=>$fileName,
+            'status'=>$req->status
+        ]);
+ 
+        return redirect()->route('product.index');
+    }
 }
