@@ -45,15 +45,22 @@ class ProductController extends Controller
     public function update(Request $req,$id)
     {
        
-        $student = DB::table('product')->where('id',$id)->update([
+        $products = DB::table('product')->where('id',$id)->update([
             'name'=>$req->name,
             'price'=>$req->price,
             'description'=>$req->des,
             'category_id'=>$req->category_id,
-            'images'=>$fileName,
             'status'=>$req->status
         ]);
  
-        return redirect()->route('product.index');
+        if($products){
+            return redirect()->route('product.index')->with('success','Update thành công');
+       }
+    }
+    public function delete(){
+        $products = DB::table('product')->delete();
+        if($products){
+            return redirect()->route('product.index')->with('success','Xóa thành công');
+       }
     }
 }

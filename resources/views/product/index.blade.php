@@ -34,7 +34,7 @@
                             <td><img src="{{asset('uploads')}}/{{$value->images}}" alt="" width="100"></td>
                             <td>{{$value->categoryName}}</td>
                             <td>
-                                <a href="{{ route('product.edit')}}"title="" class="btn-success">Sửa</a>
+                                <a href="{{ route('product.update')}}"title="" class="btn-success">Sửa</a>
                                 <a href=""title="" class="btn-success">Xóa</a>
                             </td>
                         </tr>
