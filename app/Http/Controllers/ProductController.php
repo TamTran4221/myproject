@@ -42,7 +42,7 @@ class ProductController extends Controller
             return redirect()->route('product.index')->with('success','Thêm mới thành công');
        }
     }
-    public function edit(Request $req,$id)
+    public function update(Request $req,$id)
     {
        
         $student = DB::table('product')->where('id',$id)->update([
