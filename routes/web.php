@@ -25,7 +25,11 @@ Route::post('add-category', [CategoryController::class, 'create']);
 Route::get('product', [ProductController::class, 'index'])->name('product.index');
 Route::get('add-product', [ProductController::class, 'add'])->name('product.add');
 Route::post('add-product', [ProductController::class, 'create']);
+Route::get('product/{id}', [ProductController::class, 'edit'])->name('product.edit');
+Route::post('product/{id}', [ProductController::class, 'update']);
+Route::get('product-delete/{id}', [ProductController::class, 'delete'])->name('product.delete');
 
+
+
+Route::get('upload', [CategoryController::class, 'test']);
 Route::post('upload', [CategoryController::class, 'upload']);
-Route::get('edit-product/{id}', [ProductController::class, 'update'])->name('product.update');
-Route::post('edit-product/{id}', [ProductController::class, 'edit']);

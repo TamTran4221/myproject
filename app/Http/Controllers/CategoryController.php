@@ -3,12 +3,13 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
+use DB;
+use App\Models\Category;
 class CategoryController extends Controller
 {
     public function index ()
     {
-        $categories = DB::table('category')->get();
+        $categories = Category::all();
         
         return view('category.index',compact('categories'));
     }
@@ -20,10 +21,11 @@ class CategoryController extends Controller
 
     public function create(Request $req)
     {
-       $category = DB::table('category')->insert($req->except('_token'));
+    
+       $category = Category::create($req->all());
 
        if($category){
-            return redirect()->route('category.index')->with('success','Thêm mới thành công');
+            return redirect()->route('category.index')->with('success','Thêm mới thành cồng');
        }
     }
 
